@@ -37,7 +37,7 @@ namespace DemoWpf.Pages
 
             // Создаем ObservableCollection из отфильтрованных услуг
             App.clientsService = new ObservableCollection<ClientService>(filteredServices);
-            ClientsServiceLv.ItemsSource = App.clientsService;
+            ClientsServiceLv.ItemsSource = App.clientsService; 
 
 
             updateTimer = new Timer(30000); // 30000 миллисекунд = 30 секунд
