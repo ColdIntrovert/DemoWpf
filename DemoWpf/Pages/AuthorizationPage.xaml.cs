@@ -34,7 +34,8 @@ namespace DemoWpf.Pages
         {
             if(PasswordTb.Password == "0000")
             {
-                NavigationService.Navigate(new AdministratorPage());
+                App.ActivatesStatus = true;
+                NavigationService.Navigate(new ClientPage());
             }
             else
             {
