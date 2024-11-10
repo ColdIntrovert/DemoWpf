@@ -89,13 +89,19 @@ namespace DemoWpf.Pages
                     int timeInMinutes;
 
                     // Пробуем распарсить строку в int
-                    if (int.TryParse(timeMyServ, out timeInMinutes))
+                    if (int.TryParse(timeMyServ, out timeInMinutes) && DateTime.TryParseExact(TimeTb.Text, "HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime times))
                     {
                         // Создаем TimeSpan из минут
-                        TimeSpan timeSpan = TimeSpan.FromMinutes(timeInMinutes);
+                        TimeSpan timeSpanFromMinutes = TimeSpan.FromMinutes(timeInMinutes);
 
-                        // Объединяем дату из combinedDateTime с временем из timeSpan
-                        DateTime result = combinedDateTime.Date + timeSpan;
+                        // Преобразуем полученное время в TimeSpan
+                        TimeSpan timeSpanFromTimes = times.TimeOfDay;
+
+                        // Складываем оба TimeSpan
+                        TimeSpan totalTimeSpan = timeSpanFromMinutes + timeSpanFromTimes;
+
+                        // Объединяем дату с общим временем, используя сутки и нужный час
+                        DateTime result = combinedDateTime.Date.Add(totalTimeSpan);
 
                         // Устанавливаем результат в текстовое поле
                         EndServicesTb.Text = result.ToString("G"); // форматируем результат в нужный формат

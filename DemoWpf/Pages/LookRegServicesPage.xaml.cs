@@ -30,9 +30,10 @@ namespace DemoWpf.Pages
 
             InitializeComponent();
             int today = DateTime.Today.Day;
+            int tomorow = DateTime.Today.AddDays(1).Day;
             // Фильтруем услуги по сегодняшней и завтрашней дате
             var filteredServices = DbConnections.demoEntities.ClientService
-                .Where(service => service.StartTime.Day == today && service.ServiceID == serviceId.ID).OrderBy(service => service.StartTime)
+                .Where(service => service.StartTime.Day == today || service.StartTime.Day == tomorow).OrderBy(service => service.StartTime)
                 .ToList();
 
             // Создаем ObservableCollection из отфильтрованных услуг

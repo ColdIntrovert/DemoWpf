@@ -409,6 +409,7 @@ namespace DemoWpf.Pages
                 DbConnections.demoEntities.Service.Remove(serviceData);
                 var photosToRemove = DbConnections.demoEntities.ServicePhoto.Where(x => x.ServiceID == serviceData.ID).ToList();
                 DbConnections.demoEntities.ServicePhoto.RemoveRange(photosToRemove);
+
                 DbConnections.demoEntities.SaveChanges();
                 ServiсeLv.ItemsSource = App.services;
                 UpdateServiceList();

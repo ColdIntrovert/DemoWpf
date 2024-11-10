@@ -10,12 +10,12 @@
 
     <Grid>
         <StackPanel Orientation="Vertical">
-            <TextBlock HorizontalAlignment="Center" FontSize="35">Запись на услугу</TextBlock>
-            <StackPanel Width="500" Height="250" HorizontalAlignment="Center">
-                <ListView x:Name="ClientsServiceLv" ScrollViewer.VerticalScrollBarVisibility="Hidden"  Height="295" ItemsSource="{Binding clientsService}" d:ItemsSource="{d:SampleData}">
+            <TextBlock HorizontalAlignment="Center" FontSize="35">Записи</TextBlock>
+            <StackPanel Width="500" Height="240" HorizontalAlignment="Center">
+                <ListView  x:Name="ClientsServiceLv" ScrollViewer.VerticalScrollBarVisibility="Hidden"  Height="240" ItemsSource="{Binding clientsService}" d:ItemsSource="{d:SampleData}">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <UniformGrid Columns="2"/>
+                            <UniformGrid Columns="1"/>
                         </ItemsPanelTemplate>
                     </ListView.ItemsPanel>
                     <ListView.ItemTemplate>
